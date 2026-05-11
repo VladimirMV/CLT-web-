@@ -1,4 +1,4 @@
-import { Linkedin } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 import { Language, translations } from '../translations';
 import { useTheme } from '../ThemeContext';
 import logoForDarkTheme from '../../imports/logo_dark1f.png';
@@ -103,6 +103,16 @@ export function Footer({ language }: FooterProps) {
                 </a>
               </li>
             </ul>
+
+            {/* Contact info */}
+            <div className="mt-6 space-y-3">
+              <div className="flex items-center gap-2 text-[var(--neutral-gray)] text-sm">
+                <Mail className="w-4 h-4" />
+                <a href="mailto:info@common-laser.com" className="hover:text-[var(--laser-blue)] transition-colors">
+                  info@common-laser.com
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

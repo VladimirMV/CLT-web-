@@ -6,7 +6,7 @@ import * as z from 'zod';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { Language, translations } from '../translations';
-
+import emailjs from '@emailjs/browser';
 interface ContactSectionProps {
   language: Language;
 }
@@ -37,13 +37,53 @@ export function ContactSection({ language }: ContactSectionProps) {
   });
 
   const onSubmit = async (data: FormData) => {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('Form data:', data);
+  try {
+    // 1. Письмо в компанию (шаблон "Новая заявка с сайта")
+    const companyParams = {
+      from_name: data.name,
+      from_email: data.email,
+      company: data.company || '',
+      phone: data.phone || '',
+      message: data.message,
+    };
+
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+      companyParams,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+    );
+
+    console.log('✅ Письмо компании успешно отправлено');
+
+    
+// 2. Автоответ клиенту (на английском)
+const clientParams = {
+  from_name: data.name,
+  from_email: data.email,          // ←←← ОБЯЗАТЕЛЬНО добавьте эту строку
+};
+
+await emailjs.send(
+  import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+  'template_fje7efs',   // ← ваш ID
+  clientParams,
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+);
+    console.log('✅ Письмо-подтверждение клиенту отправлено');
+
+    // Успех
     setIsSubmitted(true);
     reset();
-    setTimeout(() => setIsSubmitted(false), 5000);
-  };
+
+    // Убираем сообщение успеха через 5 секунд
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 5000);
+  } catch (error) {
+    console.error('❌ Ошибка EmailJS:', error);
+    alert('Ошибка отправки. Попробуйте позже или напишите напрямую на info@common-laser.com');
+  }
+};
 
   return (
     <section id="contact" ref={ref} className="py-24 lg:py-32 bg-[var(--deep-space)] relative overflow-hidden">

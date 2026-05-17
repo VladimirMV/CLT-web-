@@ -33,8 +33,8 @@ function App() {
         <SolutionsSection language={language} />
         <ProtectionCapabilitiesSection language={language} />
         <AdvantagesSection language={language} />
-        <UseCasesSection language={language} />
-        <TrustSection language={language} />
+        {/* <UseCasesSection language={language} /> 
+        <TrustSection language={language} />*/}
         <ContactSection language={language} />
         <Footer language={language} />
       </div>

@@ -38,7 +38,7 @@ export function ContactSection({ language }: ContactSectionProps) {
 
   const onSubmit = async (data: FormData) => {
   try {
-    // 1. Письмо в компанию (шаблон "Новая заявка с сайта")
+    // 1. Письмо в компанию (полная заявка)
     const companyParams = {
       from_name: data.name,
       from_email: data.email,
@@ -56,22 +56,22 @@ export function ContactSection({ language }: ContactSectionProps) {
 
     console.log('✅ Письмо компании успешно отправлено');
 
-    
-// 2. Автоответ клиенту (на английском)
-const clientParams = {
-  from_name: data.name,
-  from_email: data.email,          // ←←← ОБЯЗАТЕЛЬНО добавьте эту строку
-};
+    // 2. Автоответ клиенту (на английском)
+    const clientParams = {
+      from_name: data.name,
+      from_email: data.email,
+    };
 
-await emailjs.send(
-  import.meta.env.VITE_EMAILJS_SERVICE_ID!,
-  'template_fje7efs',   // ← ваш ID
-  clientParams,
-  import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
-);
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_CLIENT_ID!,
+      clientParams,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+    );
+
     console.log('✅ Письмо-подтверждение клиенту отправлено');
 
-    // Успех
+    // Успешное завершение
     setIsSubmitted(true);
     reset();
 

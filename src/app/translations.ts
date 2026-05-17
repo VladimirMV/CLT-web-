@@ -18,7 +18,7 @@ export const translations = {
       subtitle: 'Against UAVs',
       description: 'High-precision AI laser systems for neutralizing unmanned aerial vehicles and protecting critical infrastructure',
       learnMore: 'Learn More',
-      requestDemo: 'Request Demo',
+      requestDemo: 'Contact Form',
       stats: {
         range: 'Detection Range',
         rangeValue: 'Up to 5 km',

@@ -90,7 +90,7 @@ export const translations = {
         description: 'Automatic detection and blinding of visible and infrared cameras',
       },
       cameraKiller: {
-        name: 'LASER CAMERA KILLER',
+        name: 'LASER CAMERA NEUTRALIZER',
         category: 'Pulse System',
         power: '532 nm, up to 1 J',
         range: 'Up to 3350 m',
@@ -106,7 +106,7 @@ export const translations = {
         description: 'Optimized for highly sensitive long-range reconnaissance cameras',
       },
       nightVision: {
-        name: 'NIGHT-VISION KILLER',
+        name: 'NIGHT-VISION NEUTRALIZER',
         category: 'Specialized System',
         power: 'SWIR - LWIR',
         range: 'Variable',
@@ -243,7 +243,7 @@ export const translations = {
     // Contact Section
     contact: {
       badge: 'Contact Us',
-      title: 'Request a Demo',
+      title: 'Contact Form',
       description: 'Leave your details and our specialists will contact you to arrange a demonstration of our systems',
       form: {
         name: { label: 'Full Name', placeholder: 'John Doe' },
@@ -382,7 +382,7 @@ export const translations = {
         description: 'Автоматичне виявлення та осліплення видимих та інфрачервоних камер',
       },
       cameraKiller: {
-        name: 'LASER CAMERA KILLER',
+        name: 'LASER CAMERA NEUTRALIZER',
         category: 'Імпульсна система',
         power: '532 нм, до 1 Дж',
         range: 'До 3350 м',
@@ -398,7 +398,7 @@ export const translations = {
         description: 'Оптимізований для високочутливих камер дальньої розвідки',
       },
       nightVision: {
-        name: 'NIGHT-VISION KILLER',
+        name: 'NIGHT-VISION NEUTRALIZER',
         category: 'Спеціалізована система',
         power: 'SWIR - LWIR',
         range: 'Змінна',
@@ -565,9 +565,9 @@ export const translations = {
       products: 'Продукти',
       productLinks: {
         dazzler: 'LASER DAZZLER',
-        cameraKiller: 'LASER CAMERA KILLER',
+        cameraKiller: 'LASER CAMERA NEUTRALIZER',
         antiRecon: 'ANTI-RECONNAISSANCE LASER',
-        nightVision: 'NIGHT-VISION KILLER',
+        nightVision: 'NIGHT-VISION NEUTRALIZER',
       },
       company: 'Компанія',
       companyLinks: {
